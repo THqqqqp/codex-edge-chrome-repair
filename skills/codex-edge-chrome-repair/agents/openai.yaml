@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Edge Chrome Repair"
+  short_description: "Repair macOS Codex Edge bridge."
+  default_prompt: "Fix Codex Edge Chrome plugin connection"
