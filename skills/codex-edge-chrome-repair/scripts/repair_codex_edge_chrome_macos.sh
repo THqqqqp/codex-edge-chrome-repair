@@ -145,7 +145,9 @@ require_path "$source_plugin/.codex-plugin/plugin.json" "source plugin.json"
 require_path "$source_plugin/assets" "source assets"
 require_path "$source_plugin/scripts/browser-client.mjs" "source browser-client.mjs"
 require_path "$source_plugin/scripts/extension-id.json" "source extension-id.json"
-require_path "$source_plugin/skills/chrome/SKILL.md" "source chrome skill"
+if [[ ! -f "$source_plugin/skills/chrome/SKILL.md" && ! -f "$source_plugin/skills/control-chrome/SKILL.md" ]]; then
+  fail "Missing source chrome skill: expected skills/chrome/SKILL.md or skills/control-chrome/SKILL.md under $source_plugin"
+fi
 
 extension_id="$(json_value "$source_plugin/scripts/extension-id.json" extensionId)"
 host_name="$(json_value "$source_plugin/scripts/extension-id.json" extensionHostName)"

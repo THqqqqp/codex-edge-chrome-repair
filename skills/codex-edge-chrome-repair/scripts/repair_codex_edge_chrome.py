@@ -219,9 +219,14 @@ def validate_plugin_dir(path: Path, label: str) -> None:
         path / "assets",
         path / "scripts" / "browser-client.mjs",
         path / EXTENSION_ID_FILE,
-        path / "skills" / "chrome" / "SKILL.md",
     ]
     missing = [str(item) for item in required if not item.exists()]
+    skill_paths = [
+        path / "skills" / "chrome" / "SKILL.md",
+        path / "skills" / "control-chrome" / "SKILL.md",
+    ]
+    if not any(item.exists() for item in skill_paths):
+        missing.append(f"{path}/skills/(chrome|control-chrome)/SKILL.md")
     if missing:
         raise RepairError(f"{label} plugin directory is incomplete: {', '.join(missing)}")
 
