@@ -32,6 +32,15 @@ The original repair and validation were done on:
 - Microsoft Edge: `148.0.3967.83`
 - Codex Chrome Extension ID: `hehggadaopoacecdllhhajmbjkdcmajg`
 
+It was also revalidated with the newer plugin layout and native host name on:
+
+- macOS: `15.2`, Apple Silicon `arm64`
+- Codex App: `26.623.42026`
+- Codex CLI: `codex-cli 0.142.3`
+- Codex Chrome plugin cache: `chrome@openai-bundled 26.623.42026`
+- Microsoft Edge: `149.0.4022.96`
+- Codex Chrome Extension ID: `hehggadaopoacecdllhhajmbjkdcmajg`
+
 The script prints the current machine's versions when it runs. Other versions may work, but run `--dry-run` first and compare the output.
 
 ### What if Python is not installed?
@@ -117,6 +126,15 @@ After repair, restart Codex App and reload the Codex extension from `edge://exte
 - Codex CLI：`codex-cli 0.133.0-alpha.1`
 - Codex Chrome plugin cache：`chrome@openai-bundled 26.519.41501`
 - Microsoft Edge：`148.0.3967.83`
+- Codex Chrome Extension ID：`hehggadaopoacecdllhhajmbjkdcmajg`
+
+后来也在新版插件目录结构和新版 native host 文件名下重新验证：
+
+- macOS：`15.2`，Apple Silicon `arm64`
+- Codex App：`26.623.42026`
+- Codex CLI：`codex-cli 0.142.3`
+- Codex Chrome plugin cache：`chrome@openai-bundled 26.623.42026`
+- Microsoft Edge：`149.0.4022.96`
 - Codex Chrome Extension ID：`hehggadaopoacecdllhhajmbjkdcmajg`
 
 脚本会在运行时打印当前机器的版本信息。不同版本也可能可用，但请先跑 `--dry-run` 对照输出。

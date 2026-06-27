@@ -116,6 +116,26 @@ require_path() {
   [[ -e "$path" ]] || fail "Missing $label: $path"
 }
 
+find_macos_extension_host_binary() {
+  local host_root="$1"
+  local host_arch="$2"
+  local host_dir="$host_root/extension-host/macos/$host_arch"
+  local candidates=(
+    "$host_dir/Codex for Chrome"
+    "$host_dir/extension-host"
+  )
+
+  local candidate
+  for candidate in "${candidates[@]}"; do
+    if [[ -x "$candidate" ]]; then
+      print -r -- "$candidate"
+      return 0
+    fi
+  done
+
+  fail "Missing extension host binary: expected Codex for Chrome or extension-host under $host_dir"
+}
+
 codex_home="$(realpath_portable "$codex_home")"
 
 if [[ -z "$source_plugin" ]]; then
@@ -213,8 +233,7 @@ if [[ "$skip_edge_manifest" != "1" ]]; then
     host_root="$cache_plugin"
   fi
 
-  host_binary="$host_root/extension-host/macos/$host_arch/extension-host"
-  require_path "$host_binary" "extension host binary"
+  host_binary="$(find_macos_extension_host_binary "$host_root" "$host_arch")"
 
   manifest_dir="$HOME/Library/Application Support/Microsoft Edge/NativeMessagingHosts"
   manifest_path="$manifest_dir/$host_name.json"

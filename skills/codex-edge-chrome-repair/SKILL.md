@@ -62,6 +62,8 @@ The Python script `repair_codex_edge_chrome.py` is optional. Use it only when `p
 
 This skill was created and validated on macOS 15.2 arm64 with Codex App 26.519.41501, Codex CLI `codex-cli 0.133.0-alpha.1`, `chrome@openai-bundled` 26.519.41501, Microsoft Edge 148.0.3967.83, and Codex Chrome Extension ID `hehggadaopoacecdllhhajmbjkdcmajg`.
 
+It was revalidated on macOS 15.2 arm64 with Codex App 26.623.42026, Codex CLI `codex-cli 0.142.3`, `chrome@openai-bundled` 26.623.42026, Microsoft Edge 149.0.4022.96, and the same Codex Chrome Extension ID.
+
 ## Safety Notes
 
 - Do not edit `scripts/browser-client.mjs` manually. Codex trusts it by SHA256 hash, so local modifications commonly break `@chrome`.
